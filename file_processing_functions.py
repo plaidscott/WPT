@@ -39,16 +39,15 @@ def file_creation(folder_path, file_name, df):
             os.makedirs(folder_path, exist_ok=True)
         except FileNotFoundError:
             tkinter.messagebox.showerror(title=f"File creation error", message="""
-            Something went wrong creating the file. The file path doesn't exist
+            Something went wrong creating the file. The file path may not exist
             """)
     else:
-        print('it does exist')
+        # print('it does exist')
         try:
-            df.to_csv(f"{folder_path}/{file_name}")
+            df.to_excel(f"{folder_path}/{file_name}.xlsx")
 
         except FileExistsError:
             tkinter.messagebox.showerror(title=f"File creation error", message="""
             Something went wrong creating the file. The file path exists but something
             else went wrong.
             """)
-
